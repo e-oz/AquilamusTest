@@ -24,6 +24,16 @@ angular.module('galleryApp')
               //noinspection JSPrimitiveTypeWrapperUsage
               scope.artwork.medium = scope.mediums[0];
             }
+            else {
+              if (typeof scope.artwork.medium === 'string') {
+                angular.forEach(scope.mediums, function (medium) {
+                  if (scope.artwork.medium === medium.url) {
+                    scope.artwork.medium = medium;
+                    return false;
+                  }
+                });
+              }
+            }
           }
         }
 

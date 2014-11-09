@@ -79,23 +79,23 @@ angular.module('galleryApp')
       create:         function () {
         var d = $q.defer();
         var emptyObject = {
-          'artist':           '',
-          'description':      '',
+          'artist':           null,
+          'description':      null,
           'dimension1':       0,
           'dimension2':       0,
           'dimension3':       0,
           'dimensions_in_cm': false,
-          'id':               9999,
+          'id':               null,
           'includes_vat':     false,
-          'materials':        'http://54.77.217.175/artworks/9999/materials',
-          'medium':           'http://54.77.217.175/mediums/1',
+          'materials':        null,
+          'medium':           null,
           'price':            0,
-          'title':            'art',
-          'url':              '',
-          'vat':              0,
+          'title':            null,
+          'url':              null,
+          'vat':              null,
           'year':             0
         };
-        $http.post(Config.apiUrl + '/artworks').success(function () {
+        $http.post(Config.apiUrl + '/artworks', emptyObject).success(function () {
           // API returns 500 error so I can't check what will be returned
           d.resolve(emptyObject);
         }).finally(function () {

@@ -1,0 +1,37 @@
+<md-card layout="vertical">
+  <div layout="horizontal" layout-padding>
+    <div flex="66" layout="horizontal">
+      <div flex>Artist & Title & Date</div>
+      <div flex>Medium & Material</div>
+      <div flex>Dimensions & Color</div>
+      <div flex>Price</div>
+    </div>
+    <div flex="33" layout="vertical" layout-fill>
+      <md-button ng-click="remove()" flex="70" offset="30" class="md-raised md-warn">Delete Artwork</md-button>
+    </div>
+  </div>
+  <div layout="horizontal" flex="66" layout-padding>
+    <div layout="vertical" flex>
+      <md-text-float label="Artist" ng-model="artwork.artist"></md-text-float>
+      <md-text-float label="Title" ng-model="artwork.title"></md-text-float>
+      <md-text-float label="Year" ng-model="artwork.year"></md-text-float>
+    </div>
+    <div layout="vertical" flex>
+      <div layout="vertical" style="margin: 28px 0 9px 0;">
+        <select ng-model="artwork.medium" ng-options="m as m.name for m in mediums" class="select-lg"></select>
+      </div>
+      <md-text-float label="Material" ng-model="artwork.material"></md-text-float>
+    </div>
+    <div layout="vertical" flex>
+      <md-text-float label="Height" ng-model="artwork.dimension1" type="number"></md-text-float>
+      <md-text-float label="Width" ng-model="artwork.dimension2" type="number"></md-text-float>
+      <md-text-float ng-show="artwork.medium.dimensions==3" label="Depth" ng-model="artwork.dimension3" type="number"></md-text-float>
+      <md-switch ng-model="artwork.dimensions_in_cm" aria-label="In centimeters" class="float-switch"><span ng-if="artwork.dimensions_in_cm">cm</span><span ng-if="!artwork.dimensions_in_cm">inches</span></md-switch>
+    </div>
+    <div layout="vertical" flex>
+      <md-text-float label="Price " ng-model="artwork.price"></md-text-float>
+      <md-switch ng-model="artwork.includes_vat" aria-label="includes VAT" class="float-switch"><span ng-if="artwork.includes_vat">GROSS</span><span ng-if="!artwork.includes_vat">NET</span></md-switch>
+      <md-text-float label="VAT" ng-model="artwork.vat"></md-text-float>
+    </div>
+  </div>
+</md-card>

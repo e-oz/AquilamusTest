@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Gallery</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/themes/deep-purple-theme.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/themes/purple-theme.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/themes/pink-theme.css" />
+  <link rel="stylesheet" href="bower_components/angular-material/themes/deep-orange-theme.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="galleryApp">
+  <div ng-view=""></div>
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/hammerjs/hammer.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/directives/artwork.js"></script>
+  <script src="scripts/services/artworksservice.js"></script>
+  <script src="scripts/services/config.js"></script>
+  <script src="scripts/services/mediumsservice.js"></script>
+  <script src="scripts/services/materialsservice.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

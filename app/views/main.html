@@ -1,0 +1,13 @@
+<md-content md-theme="purple">
+  <div layout="vertical" layout-padding>
+    <md-card layout="horizontal" layout-align="center center">
+      <div flex="66" layout-fill layout-padding>
+        <md-text-float label="Search your artist" ng-model="data.search"></md-text-float>
+      </div>
+      <div flex="33" layout="vertical" layout-fill>
+        <md-button ng-click="newArtwork()" flex="70" offset="30" class="md-raised md-primary">Create artwork</md-button>
+      </div>
+    </md-card>
+    <artwork ng-repeat="item in items | filter:{'artist':data.search}" ng-model="item" collection="items"></artwork>
+  </div>
+</md-content>

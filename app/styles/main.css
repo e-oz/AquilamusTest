@@ -1,0 +1,17 @@
+input
+{
+  width: 100%;
+}
+
+.select-lg
+{
+  line-height:      32px;
+  height:           32px;
+  font-size:        16px;
+  background-color: inherit;
+}
+
+.float-switch
+{
+  margin-top: 32px;
+}

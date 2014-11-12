@@ -34,8 +34,8 @@ module.exports = function (grunt) {
         tasks: []
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        files: ['<%= yeoman.app %>/es6/{,*/}*.js'],
+        tasks: ['traceur'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -204,7 +204,7 @@ module.exports = function (grunt) {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       options: {
-        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images']
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
       }
     },
 
@@ -346,6 +346,21 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    traceur: {
+      options: {
+        includeRuntime: false,
+        script: true
+      },
+      custom: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/es6/',
+          src: ['{,*/}*.js'],
+          dest: '<%= yeoman.app %>/scripts/'
+        }]
+      }
     }
   });
 
@@ -357,7 +372,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'concurrent:server',
+      'traceur',
       'autoprefixer',
       'connect:livereload',
       'watch'
@@ -371,7 +386,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'concurrent:test',
+    'traceur',
     'autoprefixer',
     'connect:test',
     'karma'
@@ -379,6 +394,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'traceur',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
